@@ -1,0 +1,22 @@
+services:
+  ventas:
+    build: ./ingestion/ventas
+    env_file: .env
+
+  stock:
+    build: ./ingestion/stock
+    env_file: .env
+
+  devoluciones:
+    build: ./ingestion/devoluciones
+    env_file: .env
+    depends_on:
+      ventas:
+        condition: service_completed_successfully
+
+  recepciones:
+    build: ./detection/recepciones
+    env_file: .env
+    depends_on:
+      stock:
+        condition: service_completed_successfully

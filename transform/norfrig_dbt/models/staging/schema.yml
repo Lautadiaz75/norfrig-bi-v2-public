@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: stg_ventas
+    description: "Ventas diarias desde Contabilium, limpias y filtradas"
+    columns:
+      - name: id_comprobante
+        tests:
+          - not_null
+      - name: sku
+        tests:
+          - not_null
+      - name: cantidad
+        tests:
+          - not_null
+
+  - name: stg_stock
+    description: "Stock por depósito desde Contabilium"
+    columns:
+      - name: sku
+        tests:
+          - not_null
+      - name: stock_disponible
+        tests:
+          - not_null
+
+  - name: stg_devoluciones
+    description: "Notas de crédito diarias desde Contabilium"
+    columns:
+      - name: sku
+        tests:
+          - not_null
+      - name: cantidad
+        tests:
+          - not_null

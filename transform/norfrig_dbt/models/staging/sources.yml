@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: norfrig_raw
+    database: norfrig-bi-dev
+    schema: norfrig_bi_dev
+    tables:
+      - name: raw_ventas
+      - name: stock_por_deposito
+      - name: devoluciones_diarias
+      - name: dim_productos
+      - name: dim_proveedores
+      - name: maestro_productos
+      - name: diccionario_combos
